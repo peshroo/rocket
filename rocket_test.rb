@@ -28,30 +28,30 @@ class RocketTest < Minitest::Test
   end
 
   def test_lift_off_with_rocket_grounded
-    @rocket.lift_off == true
-    @rocket.flying? == true
+    assert @rocket.lift_off == true
+    assert @rocket.flying? == true
   end
 
   def test_lift_off_with_rocket_in_flight
     @rocket.lift_off
-    @rocket.lift_off == false
-    @rocket.flying? == true
+    assert @rocket.lift_off == false
+    assert @rocket.flying? == true
   end
 
   def test_land_with_rocket_in_flight
     @rocket = Rocket.new(:flying => true)
-    @rocket.land == true
+    assert @rocket.land == true
   end
 
   def test_grounded_rocket_cant_land
-    @rocket.flying? == false
-    @rocket.land == false
+    assert @rocket.flying? == false
+    assert @rocket.land == false
   end
 
   def test_flying_rocket_not_flying_after_landing
     @rocket = Rocket.new(:flying => true)
     @rocket.land
-    @rocket.flying? == false
+    assert @rocket.flying? == false
   end
 
   def test_status_is_flying
