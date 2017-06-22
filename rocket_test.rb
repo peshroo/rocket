@@ -17,4 +17,14 @@ class RocketTest < Minitest::Test
     refute @rocket.name == "Hello"
   end
 
+  def test_new_colour
+    @rocket.colour = ("orange")
+    assert @rocket.colour = "orange"
+  end
+
+  def test_different_new_colour
+    @rocket.colour = (1)
+    refute @rocket.colour == "orange"
+  end
+
 end
