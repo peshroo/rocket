@@ -39,12 +39,19 @@ class RocketTest < Minitest::Test
   end
 
   def test_land_with_rocket_in_flight
+    @rocket = Rocket.new(:flying => true)
+    @rocket.land == true
   end
 
   def test_grounded_rocket_cant_land
+    @rocket.flying? == false
+    @rocket.land == false
   end
 
   def test_flying_rocket_not_flying_after_landing
+    @rocket = Rocket.new(:flying => true)
+    @rocket.land
+    @rocket.flying? == false
   end
 
   def test_status_is_flying
