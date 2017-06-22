@@ -55,9 +55,13 @@ class RocketTest < Minitest::Test
   end
 
   def test_status_is_flying
+    @rocket = Rocket.new(:flying => true)
+    assert_equal @rocket.status. "Rocket #{@rocket.name} has lift off!"
   end
 
   def test_status_is_not_flying
+    @rocket.flying?
+    assert_equal @rocket.status, "Rocket #{@rocket.name} is ready for lift off!"
   end
 
 end
